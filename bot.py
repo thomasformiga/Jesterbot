@@ -20,13 +20,13 @@ async def on_ready():
 
 
 #Commands
-@bot.slash_command(guild_ids=[928401895595327548], name="jester")
+@bot.slash_command(guild_ids=[928401895595327548], name="jester", description="Say hi to Jester!")
 async def jester(ctx):
-    """Say hi to Jester!""" 
     await ctx.respond(f"Hello {ctx.author.mention}, I am ***jester.***\nI have endless games, charades, prizes and rewards...\n\nJust type `/game` and we can begin...")
 
 
-
+#load extensions here ('extensions.NAME')
+bot.load_extension('extensions.help')
 
 #All done, run token
 bot.run(os.environ['TOKEN'])
