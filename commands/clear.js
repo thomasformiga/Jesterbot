@@ -4,7 +4,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('clear')
 		.setDescription('delete up to 99 messages')
-		.addIntegerOption(option => option.setName('amount').setDescription('number of messages to delete (1-99)')),
+		.addIntegerOption(option => option.setName('amount').setDescription('number of messages to delete (1 to 99)')),
 	async execute(interaction) {
 		const amount = interaction.options.getInteger('amount');
 
