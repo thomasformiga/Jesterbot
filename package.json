@@ -1,0 +1,19 @@
+{
+  "name": "jesterbot",
+  "version": "0.0.1",
+  "description": "jester is a discord bot and also a clown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasformiga/Jesterbot.git"
+  },
+  "author": "thomasformiga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasformiga/Jesterbot/issues"
+  },
+  "homepage": "https://github.com/thomasformiga/Jesterbot#readme"
+}
