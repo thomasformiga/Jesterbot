@@ -4,22 +4,21 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('help')
-		.setDescription('Commands list, Patreon')
+		.setName('help').setDescription('Commands list, Patreon')
         .addStringOption(option =>
             option.setName('category')
-            .setDescription('options')
-			.setRequired(true)
-			.addChoice('commands', 'Command list')
-			.addChoice('patreon', 'Sponsor me!')),
+                .setDescription('options')
+                .setRequired(true)
+                .addChoice('commands', 'help_commands')
+                .addChoice('patreon', 'help_patreon')),
     async execute(interaction) {
+        const category = interaction.options.getString('category');
+         
+        if (category == 'commands') {
+			return interaction.reply('currently working: /clear')
+        }
 
-        
-        if (interaction.options.getBoolean() === 'commands') {
-			await interaction.reply('currently working: /clear');
-        };
-
-        if (interaction.options.getBoolean() === 'patreon') {
+        if (category == 'patreon') {
             const PatreonEmbed = new MessageEmbed()
                 .setColor('#e6094f')
                 .setTitle('Become a sponsor!')
@@ -30,8 +29,8 @@ module.exports = {
                     { name: 'Benefits include:', value: 'lorem ipsum\nsit dolor amet'},
                 )
                 .setFooter({ text: '"turns out running an interdimensional circus is ridiculously expensive lmao"', iconURL: 'https://i.imgur.com/TCNO7r1.jpeg' });
-			await interaction.reply({ embeds: [PatreonEmbed] });
-        };
+            return interaction.reply({ embeds: [PatreonEmbed] });
+        }
 
 
 
