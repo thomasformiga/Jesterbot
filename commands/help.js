@@ -14,11 +14,11 @@ module.exports = {
     async execute(interaction) {
         const category = interaction.options.getString('category');
          
-        if (category == 'commands') {
+        if (category == 'help_commands') {
 			return interaction.reply('currently working: /clear')
         }
 
-        if (category == 'patreon') {
+        if (category == 'help_patreon') {
             const PatreonEmbed = new MessageEmbed()
                 .setColor('#e6094f')
                 .setTitle('Become a sponsor!')

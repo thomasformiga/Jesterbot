@@ -1,19 +1,10 @@
 const fs = require('fs');
-const { Client, Collection, Intents, } = require('discord.js');
-const { token } = require('./config.json');
+const { Client, Collection, Intents, Guild, GuildApplicationCommandManager, } = require('discord.js');
+const { clientId, guildId, token } = require('./config.json');
 
-const client = new Client(
-{ intents: [Intents.FLAGS.GUILDS] },
-);
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-client.on('ready', () => {
-    client.user.setPresence({
-        game: {
-            name: '/help',
-            type: "PLAYING"
-        }
-    });
-});
+
 //Read command files
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
